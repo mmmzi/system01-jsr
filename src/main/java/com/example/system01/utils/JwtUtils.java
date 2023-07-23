@@ -14,7 +14,8 @@ public class JwtUtils {
     public static String CreateToken(String id, String name) {
 
         long now = System.currentTimeMillis();
-        long exp = now + 100 * 60 * 60;//设置过期时间60分钟
+        //设置过期时间60分钟
+        long exp = now + 100 * 60 * 60;
         //创建JWT对象
         JwtBuilder builder = Jwts.builder().setId("0001")
                 .setSubject("admin")

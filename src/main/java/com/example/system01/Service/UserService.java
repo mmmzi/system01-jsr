@@ -5,14 +5,19 @@ import com.example.system01.Dto.User;
 import java.util.List;
 
 public interface UserService {
-    User getUserByNameAndPassword(String username, String password);
-    List<User> FindAll();
 
+    User getUserByNameAndPassword(String username, String password);
+
+    List<User> getAll();
+
+    //根据用户名查找数据
     boolean CheckUsername(String username);
 
-    void AddOne(String username, String password);
+    void addUser(String username, String password);
 
-    void DelOne(Integer id);
+    void deleteUserById(Integer id);
 
-    void ChangeOne(Integer id, String username, String password);
+    void updateUser(Integer id, String username, String password);
+
+    boolean searchUserById(Integer id);
 }

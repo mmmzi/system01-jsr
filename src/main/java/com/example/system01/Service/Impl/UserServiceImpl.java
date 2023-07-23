@@ -15,40 +15,40 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByNameAndPassword(String username, String password) {
-
         User dbUser = userMapper.getUserByNameAndPassword(username, password);
         return dbUser;
     }
 
     @Override
-    public List<User> FindAll() {
-        return userMapper.FindAll();
+    public List<User> getAll() {
+        return userMapper.getAll();
     }
 
     @Override
     public boolean CheckUsername(String username) {
         User tempuser = userMapper.CheckUsername(username);
         System.out.println(tempuser);
-        if(tempuser!=null){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return tempuser != null;
     }
 
     @Override
-    public void AddOne(String username,String password) {
-        userMapper.AddOne(username,password);
+    public void addUser(String username, String password) {
+        userMapper.addUser(username, password);
     }
 
     @Override
-    public void DelOne(Integer id) {
-        userMapper.DelOne(id);
+    public void deleteUserById(Integer id) {
+        userMapper.deleteUserById(id);
     }
 
     @Override
-    public void ChangeOne(Integer id, String username, String password) {
-        userMapper.ChangeOne(id,username,password);
+    public void updateUser(Integer id, String username, String password) {
+        userMapper.updateUser(id, username, password);
+    }
+
+    @Override
+    public boolean searchUserById(Integer id) {
+        User tempUser = userMapper.searchUserById(id);
+        return tempUser != null;
     }
 }
