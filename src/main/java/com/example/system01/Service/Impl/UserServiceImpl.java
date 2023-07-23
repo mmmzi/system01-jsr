@@ -6,6 +6,7 @@ import com.example.system01.Service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,5 +18,37 @@ public class UserServiceImpl implements UserService {
 
         User dbUser = userMapper.getUserByNameAndPassword(username, password);
         return dbUser;
+    }
+
+    @Override
+    public List<User> FindAll() {
+        return userMapper.FindAll();
+    }
+
+    @Override
+    public boolean CheckUsername(String username) {
+        User tempuser = userMapper.CheckUsername(username);
+        System.out.println(tempuser);
+        if(tempuser!=null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public void AddOne(String username,String password) {
+        userMapper.AddOne(username,password);
+    }
+
+    @Override
+    public void DelOne(Integer id) {
+        userMapper.DelOne(id);
+    }
+
+    @Override
+    public void ChangeOne(Integer id, String username, String password) {
+        userMapper.ChangeOne(id,username,password);
     }
 }
