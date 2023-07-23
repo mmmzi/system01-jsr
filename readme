@@ -1,0 +1,3 @@
+  前端页面login.html使用了HTML、CSS和JavaScript技术。实现了一个简洁的登录界面。HTML用于构建网页的结构和内容，CSS用于美化页面的样式，JavaScript用于实现登录功能和与后端交互。
+  后端采用springboot框架，实现了用户登录的逻辑功能。在后端当中定义了Controller、Service、Mapper来分层实现服务功能。
+  本系统目前只实现了用户登录校验的功能。Controller层接收前端的登录业务请求，调用Service来完成服务，Service调用Mapper来实现与数据库信息的交互，即查询数据库是否存在当前用户，如果存在该用户，后端会创建一个会话对象存储user信息，在会话期间持久化用户信息，然后将用户数据返回给前端，前端接收数据后，跳转到系统首页。
